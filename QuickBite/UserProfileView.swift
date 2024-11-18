@@ -7,9 +7,25 @@
 
 import SwiftUI
 
+// Your imports remain the same
+
 struct UserProfileView: View {
+    @Environment(\.presentationMode) var presentationMode // Add this line
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("User Profile Content")
+                .font(.largeTitle)
+        }
+        .navigationTitle("Profile")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Done") {
+                    presentationMode.wrappedValue.dismiss() // Dismiss the sheet
+                }
+            }
+            
+        }
     }
 }
 
